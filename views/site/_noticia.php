@@ -18,8 +18,8 @@ use yii\helpers\Html;
     <div><?= Html::a(
                 "Ver noticia completa", // texto del enlace
                 [
-                    //'site/viewnoticia', // controlador/accion
-                    'site/verNoticia', // controlador/accion
+                    'site/viewnoticia', // controlador/accion
+                    //'site/verNoticia', // controlador/accion
                     'idnoticia' => $dato->idnoticia // parametro a enviar por URL
                 ],
                 [

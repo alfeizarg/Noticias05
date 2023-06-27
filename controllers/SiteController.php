@@ -84,8 +84,8 @@ class SiteController extends Controller
     }
 
 
-    //public function actionViewnoticia($idnoticia)
-    public function actionverNoticia($idnoticia)
+    public function actionViewnoticia($idnoticia)
+    //public function actionverNoticia($idnoticia)
     {
         $consulta = Noticia::find()->where([
             "idnoticia" => $idnoticia
@@ -115,7 +115,7 @@ class SiteController extends Controller
 
 
     //listas las noticias con el id
-    public function actionSeccion($id)
+    public function actionSeccion0($id)
     {
         $noticias = Noticia::find()
             ->where(["seccion" => $id])
@@ -152,7 +152,7 @@ class SiteController extends Controller
 
 
     //listas las noticias con el id del autor
-    public function actionAutor($id)
+    public function actionAutor0($id)
     {
         $noticias = Noticia::find()
             ->where(["autor" => $id])
