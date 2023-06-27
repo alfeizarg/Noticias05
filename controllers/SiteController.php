@@ -84,11 +84,11 @@ class SiteController extends Controller
     }
 
 
-    //public function actionViewnoticia($idNoticia)
-    public function actionVerNoticia($idNoticia)
+    //public function actionViewnoticia($idnoticia)
+    public function actionverNoticia($idnoticia)
     {
         $consulta = Noticia::find()->where([
-            "idNoticia" => $idNoticia
+            "idnoticia" => $idnoticia
         ]); // select * from noticia where idNoticia=1
 
         $dato = $consulta->one();

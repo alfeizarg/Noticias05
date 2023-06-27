@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'portada',
             'seccion0.nombre',
             'fecha',
-            //foto',
+            //'foto',
             'autor0.nombre',
 
             [
