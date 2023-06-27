@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\Noticia;
 use app\models\Seccion;
+use app\models\Autor;
+
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -76,12 +78,14 @@ class SiteController extends Controller
             ->all(); // ejecutar
 
         return $this->render('index', [
-            "datos" => $datos
+            "datos" => $datos,
+            "titulo" => "Noticias de Portada"
         ]);
     }
 
 
-    public function actionViewnoticia($idNoticia)
+    //public function actionViewnoticia($idNoticia)
+    public function actionVerNoticia($idNoticia)
     {
         $consulta = Noticia::find()->where([
             "idNoticia" => $idNoticia
@@ -110,16 +114,57 @@ class SiteController extends Controller
 
 
 
-
-
     //listas las noticias con el id
     public function actionSeccion($id)
     {
         $noticias = Noticia::find()
             ->where(["seccion" => $id])
             ->all();
+
+        //saco todos los datos de la seccion seleccionada
+        $seccion = Seccion::find()->where(["id" => $id])->one();
+
         return $this->render('index', [
-            "datos" => $noticias
+            "datos" => $noticias,
+            "titulo" => "Noticias de la Sección" . $seccion->nombre
+        ]);
+
+        return $this->render('datos', compact("noticias"));
+    }
+
+
+
+
+    public function actionAutores()
+
+    {
+
+        $autores = Autor::find()->all(); //select * from autor
+
+        //mando a la vista autores todas los autores de la base de datos    
+        return $this->render('autores', [
+
+            "autores" => $autores
+        ]);
+
+        return $this->render('autores', compact("autores"));
+    }
+
+
+    //listas las noticias con el id del autor
+    public function actionAutor($id)
+    {
+        $noticias = Noticia::find()
+            ->where(["autor" => $id])
+            ->all();
+
+        $autor = Autor::find()->where(["id" => $id])->one();
+
+
+        return $this->render('index', [
+            "datos" => $noticias,
+            "titulo" => "Noticias de " . $autor->nombre
+
         ]);
 
         return $this->render('datos', compact("noticias"));

@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
 
 
 
-    <?= $form->field($model, 'fecha')->input('date'); ?>
+    <?= $form->field($model, 'fecha')->input('datetime-local'); ?>
 
 
 

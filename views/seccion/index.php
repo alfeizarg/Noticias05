@@ -28,6 +28,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'nombre',
+
+
+            [
+                'attribute' => 'foto',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::img('@web/imgs/secciones/' . $model->foto, ['class' => 'col-lg-2']);
+                }
+            ],
+
+
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Seccion $model, $key, $index, $column) {

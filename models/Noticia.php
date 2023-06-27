@@ -129,8 +129,14 @@ class Noticia extends \yii\db\ActiveRecord
 
 
     public function afterDelete()
+
     {
-        unlink('imgs/' . $this->foto); //elimino la imagen de la noticia, cuando borro la noticia
+        // elimino la imagen de la noticia
+        // cuando borro la noticia
+        if (isset($this->foto) && file_exists(Yii::getAlias('@webroot') . '/imgs/' . $this->foto)) {
+            unlink('imgs/' . $this->foto);
+        }
+        return true;
     }
 
 

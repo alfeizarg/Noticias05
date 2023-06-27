@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'textoLargo:ntext',
             //'portada',
             'seccion0.nombre',
-            //'fecha',
+            'fecha',
             //foto',
             'autor0.nombre',
 
